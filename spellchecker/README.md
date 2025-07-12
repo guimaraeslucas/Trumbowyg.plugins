@@ -1,4 +1,4 @@
-## 🔡 2. Spell Checker Plugin
+## 🔡 Spell Checker Plugin
 
 This plugin integrates a robust spell checker into Trumbowyg, highlighting misspelled words and offering correction suggestions.
 
