@@ -66,7 +66,7 @@ class SpellChecker
 
         // Check if the dictionary for the specified language is available
         if (!enchant_broker_dict_exists($this->broker, $language)) {
-            throw new \Exception("Dictionary/Dicionário '{$language}' Enchant/Hunspell not found.");
+            throw new \Exception("Dictionary '{$language}' Enchant/Hunspell not found.");
         }
 
         $this->dictionary = enchant_broker_request_dict($this->broker, $language);
@@ -75,7 +75,7 @@ class SpellChecker
     /**
      * Checks a text and returns an array of misspelled words.
      *
-     * / @param string $text The text to be checked. O texto a ser verificado.
+     * / @param string $text The text to be checked. 
      * @return array An array containing the misspelled words. 
      */
     public function check(string $text): array
@@ -144,7 +144,7 @@ header('Content-Type: application/json');
 $action = $_GET['action'] ?? '';
 
 try {
-    $spellchecker = new SpellChecker('pt_BR');
+    $spellchecker = new SpellChecker('en_US');
     $response = [];
 
     switch ($action) {
@@ -163,7 +163,7 @@ try {
         default:
             // Sets an error status in the HTTP header if the action is invalid
             http_response_code(400); // Bad Request
-            $response = ['error' => 'Ação inválida. Use "check" ou "suggest".'];
+            $response = ['error' => 'Invalid action. Use "check" ou "suggest".'];
             break;
     }
 
@@ -173,7 +173,7 @@ try {
 } catch (\Exception $e) {
     // Catches exceptions (e.g., Enchant not installed) and returns a 500 error
     http_response_code(500); // Internal Server Error
-    echo json_encode(['error' => 'Erro no servidor: ' . $e->getMessage()]);
+    echo json_encode(['error' => 'Internal server error: ' . $e->getMessage()]);
 }
 
 /*
