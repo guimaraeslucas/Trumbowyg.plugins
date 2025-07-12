@@ -1,4 +1,4 @@
-## 🔌 1. IntelliSense Plugin
+## 🔌 IntelliSense Plugin
 
 This plugin enhances the editor by simulating an IntelliSense-like feature. It allows a suggestion box to be triggered by a specific character (e.g., `/`), fetching dynamic content from a backend endpoint and inserting it directly into the editor. It's perfect for creating templates, canned responses, or dynamic snippets.
 
